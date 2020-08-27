@@ -1,0 +1,24 @@
+{
+  "name": "stack",
+  "version": "1.0.0",
+  "description": "inventaire stack visualization in HTML/CSS",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && live-server .",
+    "build": "./scripts/build",
+    "watch": "onchange stack.scss -- npm run build",
+    "deploy": "./scripts/deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "maxlath",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "node-sass": "^4.13.1",
+    "onchange": "^6.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inventaire/stack"
+  }
+}

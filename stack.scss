@@ -1,0 +1,212 @@
+body{
+  color: #222;
+  font-family: sans-serif;
+  position: relative;
+}
+
+h1{
+  font-size: 2em;
+  margin: 0;
+}
+h2{
+  font-size: 1.6em;
+  margin: 1.5em 0 0.2em 0;
+}
+
+h1, h2{
+  text-align: center;
+  color: #777;
+}
+
+a{
+  text-decoration: none;
+}
+
+@mixin inner-shadow($x:1px, $y:1px, $blur:4px, $spread:1px, $color:rgba(#888, 0.3)){
+  // offset-x | offset-y | blur-radius | spread-radius | color
+  box-shadow: (-$x) $y $blur $spread $color inset,
+              $x (-$y) $blur $spread $color inset;
+}
+
+@mixin button ($color, $text-color:white) {
+  background-color: $color;
+  transition: background-color 0.5s;
+  transition: box-shadow 0.3s;
+  color: $text-color;
+  &:hover, &:focus {
+    background-color: darken($color, 3%);
+    @include inner-shadow;
+  }
+}
+
+main{
+  margin: 0 auto;
+  max-width: 60em;
+}
+
+ul, ul li{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.row-reverse{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.stretch{
+  align-self: stretch;
+}
+
+.space-around{
+  justify-content: space-around;
+}
+
+.push-down{
+  margin-top: auto;
+}
+
+.flex-1{ flex: 1 0 auto; }
+.flex-2{ flex: 2 0 auto; }
+.flex-3{ flex: 3 0 auto; }
+
+#stack{
+  flex: 1 0 auto;
+  display: flex;
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  // flex: 1;
+  white-space: nowrap;
+  padding: 1em;
+  text-align: center;
+  border-radius: 3px;
+  margin: 0.2em;
+  color: white;
+  background-color: #123456;
+  font-weight: bold;
+  .legend{
+    color: #ddd;
+    font-weight: normal;
+  }
+}
+
+.red{ background-color: red }
+.blue{ background-color: blue }
+.yellow{ background-color: yellow }
+.magenta{ background-color: magenta }
+
+.js{
+  @include button(#fff400, #555);
+  .legend{
+    color: #777;
+  }
+}
+.coffee{
+  @include button(#ffae08, white);
+  .legend{
+    color: white;
+  }
+}
+.database{
+  @include button(#920202, white);
+  .legend{
+    color: white;
+  }
+}
+.server{
+  @include button(#561231, white);
+}
+.environment{
+  @include button(#444, ddd);
+}
+.scss{
+  @include button(#319cc2, white);
+}
+.shell{
+  @include button(#89e051, white);
+  .legend{
+    color: white;
+  }
+}
+.icons{
+  @include button(#888, white);
+}
+.media-container{
+  @include button(#5125cc, white);
+}
+.open-knowledge{
+  @include button(#339966, white);
+}
+
+#brunch{
+  margin-top: 1em;
+}
+
+#self-hosted, #externals, #tools{
+  .box{
+    min-width: 18em;
+    flex: 1 0 0;
+  }
+  .placeholder{
+    background-color: white;
+  }
+}
+
+#languages{
+  margin: auto;
+  .row{
+    justify-content: space-around;
+    .box{
+      width: 7em;
+    }
+  }
+}
+
+#source{
+  text-align: center;
+  text-decoration: underline;
+  color: #777;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+#you-are-here{
+  // comment-out to use
+  display: none;
+  border: 3px solid red;
+  border-radius: 3px;
+  position: absolute;
+  // adapt position from browser inspector to fit your need
+  // before tacking a snapshot
+  top: 196px;
+  right: 100px;
+  bottom: 976px;
+  left: 100px;
+  span{
+    position: absolute;
+    top: -0.9em;
+    left: 1em;
+    color: red;
+    background-color: white;
+    padding: 0 0.5em 0 0.5em;
+  }
+}
